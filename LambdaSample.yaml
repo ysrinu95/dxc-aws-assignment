@@ -20,10 +20,33 @@ Resources:
                 Action: ['logs:*']
                 Resource: 'arn:aws:logs:*:*:*'
               - Effect: Allow
-                Action: ['ssm:*']
+                Action: [ 
+                "ssm:GetParameter",              
+                "ssm:DescribeParameters",
+                "ssm:GetParameters",
+                "ssm:GetParameterHistory" ]
                 Resource: '*'
               - Effect: Allow
-                Action: ['s3:*']
+                Action: [ "s3:GetObjectVersionTagging",
+                "s3:GetObjectAcl",
+                "s3:GetBucketObjectLockConfiguration",
+                "s3:GetObjectVersionAcl",
+                "s3:HeadBucket",
+                "s3:GetBucketPolicyStatus",
+                "s3:GetObjectRetention",
+                "s3:GetBucketNotification",
+                "s3:PutObject",
+                "s3:GetObject",
+                "s3:ListBucketVersions",
+                "s3:ListBucket",
+                "s3:GetBucketPolicy",
+                "s3:GetObjectTagging",
+                "s3:PutBucketVersioning",
+                "s3:ListAllMyBuckets",
+                "s3:PutObjectRetention",
+                "s3:GetBucketLocation",
+                "s3:GetAccessPointPolicy",
+                "s3:GetObjectVersion"]
                 Resource: '*'                 
   ExecuteLambdaFunction:
     Type: AWS::Lambda::Function
